@@ -19,7 +19,7 @@ namespace Hotels.Application.Features.CQRS.Handlers.AboutHandler
             _repository = repository;
         }
 
-        public async Task<List<GetAboutQueryResult>> Handler()
+        public async Task<List<GetAboutQueryResult>> Handle()
         {
             var values = await _repository.GetAllAsync();
             return values.Select(x => new GetAboutQueryResult
