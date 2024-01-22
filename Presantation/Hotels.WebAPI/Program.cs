@@ -1,5 +1,7 @@
 using Hotels.Application.Features.CQRS.Handlers.AboutHandler;
 using Hotels.Application.Features.CQRS.Handlers.BannerHandler;
+using Hotels.Application.Features.CQRS.Handlers.HotelHandler;
+using Hotels.Application.Features.CQRS.Handlers.HotelTypeHandler;
 using Hotels.Application.Interfaces;
 using Hotels.Persistence.Context;
 using Hotels.Persistence.Repositories;
@@ -22,6 +24,18 @@ builder.Services.AddScoped<GetBannerQueryHandler>();
 builder.Services.AddScoped<CreateBannerCommandHandler>();
 builder.Services.AddScoped<UpdateBannerCommandHandler>();
 builder.Services.AddScoped<RemoveBannerCommandHandler>();
+
+builder.Services.AddScoped<GetHotelByIdQueryHandler>();
+builder.Services.AddScoped<GetHotelQueryHandler>();
+builder.Services.AddScoped<CreateHotelCommandHandler>();
+builder.Services.AddScoped<UpdateHotelCommandHandler>();
+builder.Services.AddScoped<RemoveHotelCommandHandler>();
+
+builder.Services.AddScoped<GetHotelTypeByIdQueryHandler>();
+builder.Services.AddScoped<GetHotelTypeQueryHandler>();
+builder.Services.AddScoped<CreateHotelTypeCommandHandler>();
+builder.Services.AddScoped<UpdateHotelTypeCommandHandler>();
+builder.Services.AddScoped<RemoveHotelTypeCommandHandler>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -8,7 +8,7 @@ namespace Hotels.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BannerController : ControllerBase
+    public class BannersController : ControllerBase
     {
         private readonly GetBannerQueryHandler _getBannerQueryHandler;
         private readonly GetBannerByIdQueryHandler _getBannerByIdQueryHandler;
@@ -16,7 +16,7 @@ namespace Hotels.WebAPI.Controllers
         private readonly UpdateBannerCommandHandler _updateBannerCommandHandler;
         private readonly RemoveBannerCommandHandler _removeBannerCommandHandler;
 
-        public BannerController(GetBannerQueryHandler getBannerQueryHandler, GetBannerByIdQueryHandler getBannerByIdQueryHandler, CreateBannerCommandHandler createBannerCommandHandler, UpdateBannerCommandHandler updateBannerCommandHandler, RemoveBannerCommandHandler removeBannerCommandHandler)
+        public BannersController(GetBannerQueryHandler getBannerQueryHandler, GetBannerByIdQueryHandler getBannerByIdQueryHandler, CreateBannerCommandHandler createBannerCommandHandler, UpdateBannerCommandHandler updateBannerCommandHandler, RemoveBannerCommandHandler removeBannerCommandHandler)
         {
             _getBannerQueryHandler = getBannerQueryHandler;
             _getBannerByIdQueryHandler = getBannerByIdQueryHandler;
