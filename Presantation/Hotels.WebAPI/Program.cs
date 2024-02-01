@@ -3,14 +3,17 @@ using Hotels.Application.Features.CQRS.Handlers.BannerHandler;
 using Hotels.Application.Features.CQRS.Handlers.HotelHandler;
 using Hotels.Application.Features.CQRS.Handlers.HotelTypeHandler;
 using Hotels.Application.Interfaces;
+using Hotels.Application.Interfaces.HotelInterfaces;
 using Hotels.Persistence.Context;
 using Hotels.Persistence.Repositories;
+using Hotels.Persistence.Repositories.HotelRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<HotelContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+builder.Services.AddScoped(typeof(IHotelRepository),typeof(HotelRepository));
 
 builder.Services.AddScoped<GetAboutByIdQueryHandler>();
 builder.Services.AddScoped<GetAboutQueryHandler>();
@@ -30,6 +33,7 @@ builder.Services.AddScoped<GetHotelQueryHandler>();
 builder.Services.AddScoped<CreateHotelCommandHandler>();
 builder.Services.AddScoped<UpdateHotelCommandHandler>();
 builder.Services.AddScoped<RemoveHotelCommandHandler>();
+builder.Services.AddScoped<GetHotelWithHotelTypeQueryHandler>();
 
 builder.Services.AddScoped<GetHotelTypeByIdQueryHandler>();
 builder.Services.AddScoped<GetHotelTypeQueryHandler>();

@@ -15,14 +15,16 @@ namespace Hotels.WebAPI.Controllers
         private readonly CreateHotelCommandHandler _createHotelCommandHandler;
         private readonly UpdateHotelCommandHandler _updateHotelCommandHandler;
         private readonly RemoveHotelCommandHandler _removeHotelCommandHandler;
+        private readonly GetHotelWithHotelTypeQueryHandler _getHotelWithHotelTypeQueryHandler;      
 
-        public HotelsController(GetHotelQueryHandler getHotelQueryHandler, GetHotelByIdQueryHandler getHotelByIdQueryHandler, CreateHotelCommandHandler createHotelCommandHandler, UpdateHotelCommandHandler updateHotelCommandHandler, RemoveHotelCommandHandler removeHotelCommandHandler)
+        public HotelsController(GetHotelQueryHandler getHotelQueryHandler, GetHotelByIdQueryHandler getHotelByIdQueryHandler, CreateHotelCommandHandler createHotelCommandHandler, UpdateHotelCommandHandler updateHotelCommandHandler, RemoveHotelCommandHandler removeHotelCommandHandler, GetHotelWithHotelTypeQueryHandler getHotelWithHotelTypeQueryHandler)
         {
             _getHotelQueryHandler = getHotelQueryHandler;
             _getHotelByIdQueryHandler = getHotelByIdQueryHandler;
             _createHotelCommandHandler = createHotelCommandHandler;
             _updateHotelCommandHandler = updateHotelCommandHandler;
             _removeHotelCommandHandler = removeHotelCommandHandler;
+            _getHotelWithHotelTypeQueryHandler = getHotelWithHotelTypeQueryHandler;
         }
         [HttpGet]
         public async Task<IActionResult> HotelList()
@@ -54,6 +56,12 @@ namespace Hotels.WebAPI.Controllers
         {
             await _updateHotelCommandHandler.Handle(command);
             return Ok("Hotel Güncellendi");
+        }
+        [HttpGet("GetHotelWithHotelType")]
+        public IActionResult GetHotelWithHotelType()
+        {
+            var values = _getHotelWithHotelTypeQueryHandler.Handle();
+            return Ok(values);
         }
     }
 }

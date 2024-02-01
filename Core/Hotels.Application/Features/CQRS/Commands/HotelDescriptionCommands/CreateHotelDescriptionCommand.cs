@@ -10,7 +10,6 @@ namespace Hotels.Application.Features.CQRS.Commands.HotelDescriptionCommands
     public class CreateHotelDescriptionCommand
     {     
         public int HotelId { get; set; }
-        public Hotel Hotel { get; set; }
         public string Description { get; set; }
     }
 }

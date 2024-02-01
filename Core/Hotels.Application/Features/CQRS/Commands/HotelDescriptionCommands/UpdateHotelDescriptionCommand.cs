@@ -11,7 +11,6 @@ namespace Hotels.Application.Features.CQRS.Commands.HotelDescriptionCommands
     {
         public int HotelDescriptionId { get; set; }
         public int HotelId { get; set; }
-        public Hotel Hotel { get; set; }
         public string Description { get; set; }
     }
 }
