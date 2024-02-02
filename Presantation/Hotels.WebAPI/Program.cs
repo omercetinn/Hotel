@@ -15,7 +15,7 @@ builder.Services.AddScoped<HotelContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddScoped(typeof(IHotelRepository),typeof(HotelRepository));
 
-builder.Services.AddScoped<GetAboutByIdQueryHandler>();
+builder.Services.AddScoped<GetAboutByIdQuery>();
 builder.Services.AddScoped<GetAboutQueryHandler>();
 builder.Services.AddScoped<CreateAboutCommandHandler>();
 builder.Services.AddScoped<UpdateAboutCommandHandler>();

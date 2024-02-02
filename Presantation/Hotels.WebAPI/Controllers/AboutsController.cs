@@ -11,12 +11,12 @@ namespace Hotels.WebAPI.Controllers
     public class AboutsController : ControllerBase
     {
         private readonly CreateAboutCommandHandler _createAboutCommandHandler;
-        private readonly GetAboutByIdQueryHandler _getAboutByIdQueryHandler;
+        private readonly Application.Features.CQRS.Handlers.AboutHandler.GetAboutByIdQuery _getAboutByIdQueryHandler;
         private readonly GetAboutQueryHandler _getAboutQueryHandler;
         private readonly UpdateAboutCommandHandler _updateAboutCommandHandler;
         private readonly RemoveAboutCommandHandler _removeAboutCommandHandler;
 
-        public AboutsController(CreateAboutCommandHandler createAboutCommandHandler, GetAboutByIdQueryHandler getAboutByIdQueryHandler, GetAboutQueryHandler getAboutQueryHandler, UpdateAboutCommandHandler updateAboutCommandHandler, RemoveAboutCommandHandler removeAboutCommandHandler)
+        public AboutsController(CreateAboutCommandHandler createAboutCommandHandler, Application.Features.CQRS.Handlers.AboutHandler.GetAboutByIdQuery getAboutByIdQueryHandler, GetAboutQueryHandler getAboutQueryHandler, UpdateAboutCommandHandler updateAboutCommandHandler, RemoveAboutCommandHandler removeAboutCommandHandler)
         {
             _createAboutCommandHandler = createAboutCommandHandler;
             _getAboutByIdQueryHandler = getAboutByIdQueryHandler;
@@ -35,7 +35,7 @@ namespace Hotels.WebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAbout(int id)
         {
-            var value = await _getAboutByIdQueryHandler.Handle(new GetAboutByIdQuery(id));
+            var value = await _getAboutByIdQueryHandler.Handle(new Application.Features.CQRS.Queries.AboutQueries.GetAboutByIdQuery(id));
             return Ok(value);
         }
 

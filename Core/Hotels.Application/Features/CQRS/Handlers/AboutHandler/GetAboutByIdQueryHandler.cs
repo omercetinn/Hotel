@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace Hotels.Application.Features.CQRS.Handlers.AboutHandler
 {
-    public class GetAboutByIdQueryHandler
+    public class GetAboutByIdQuery
     {
         private readonly IRepository<About> _repository;
 
-        public GetAboutByIdQueryHandler(IRepository<About> repository)
+        public GetAboutByIdQuery(IRepository<About> repository)
         {
             _repository = repository;
         }
-        public async Task<GetAboutByIdQueryResult> Handle(GetAboutByIdQuery query)
+        public async Task<GetAboutByIdQueryResult> Handle(Queries.AboutQueries.GetAboutByIdQuery query)
         {
             var values = await _repository.GetByIdAsync(query.Id);
             return new GetAboutByIdQueryResult
