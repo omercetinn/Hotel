@@ -4,6 +4,7 @@ using Hotels.Application.Features.CQRS.Handlers.HotelHandler;
 using Hotels.Application.Features.CQRS.Handlers.HotelTypeHandler;
 using Hotels.Application.Interfaces;
 using Hotels.Application.Interfaces.HotelInterfaces;
+using Hotels.Application.Services;
 using Hotels.Persistence.Context;
 using Hotels.Persistence.Repositories;
 using Hotels.Persistence.Repositories.HotelRepositories;
@@ -42,6 +43,9 @@ builder.Services.AddScoped<UpdateHotelTypeCommandHandler>();
 builder.Services.AddScoped<RemoveHotelTypeCommandHandler>();
 
 builder.Services.AddControllers();
+
+builder.Services.AddApplication(builder.Configuration);//mediatr ile yönetilen kýsým, registiration dosyasýna buradan ulaþýyor
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
