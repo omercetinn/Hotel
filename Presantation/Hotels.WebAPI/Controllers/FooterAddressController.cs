@@ -14,6 +14,7 @@ namespace Hotels.WebAPI.Controllers
         {
             _mediator = mediator;
         }
+
         [HttpGet]
         public async Task<IActionResult> FooterAddressList()
         {
