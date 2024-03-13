@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hotels.Application.Features.CQRS.Commands.RoomCommands
 {
-    internal class UpdateRoomCommand
+    public class UpdateRoomCommand
     {
         public int RoomId { get; set; }
         public string Name { get; set; }
