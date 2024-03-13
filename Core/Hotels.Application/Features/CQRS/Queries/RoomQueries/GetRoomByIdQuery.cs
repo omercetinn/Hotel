@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hotels.Application.Features.CQRS.Queries.RoomQueries
 {
-    internal class GetRoomByIdQuery
+    public class GetRoomByIdQuery
     {
         public int Id { get; set; }
 
