@@ -2,6 +2,8 @@ using Hotels.Application.Features.CQRS.Handlers.AboutHandler;
 using Hotels.Application.Features.CQRS.Handlers.BannerHandler;
 using Hotels.Application.Features.CQRS.Handlers.HotelHandler;
 using Hotels.Application.Features.CQRS.Handlers.HotelTypeHandler;
+using Hotels.Application.Features.CQRS.Handlers.RoomDescriptionHandler;
+using Hotels.Application.Features.CQRS.Handlers.RoomHandler;
 using Hotels.Application.Interfaces;
 using Hotels.Application.Interfaces.HotelInterfaces;
 using Hotels.Application.Services;
@@ -41,6 +43,18 @@ builder.Services.AddScoped<GetHotelTypeQueryHandler>();
 builder.Services.AddScoped<CreateHotelTypeCommandHandler>();
 builder.Services.AddScoped<UpdateHotelTypeCommandHandler>();
 builder.Services.AddScoped<RemoveHotelTypeCommandHandler>();
+
+builder.Services.AddScoped<GetRoomByIdQueryHandler>();
+builder.Services.AddScoped<GetRoomQueryHandler>();
+builder.Services.AddScoped<CreateRoomCommandHandler>();
+builder.Services.AddScoped<UpdateRoomCommandHandler>();
+builder.Services.AddScoped<RemoveRoomCommandHandler>();
+
+builder.Services.AddScoped<GetRoomDescriptionByIdQueryHandler>();
+builder.Services.AddScoped<GetRoomDescriptionQueryHandler>();
+builder.Services.AddScoped<CreateRoomDescriptionCommandHandler>();
+builder.Services.AddScoped<UpdateRoomDescriptionCommandHandler>();
+builder.Services.AddScoped<RemoveRoomDescriptionCommandHandler>();
 
 builder.Services.AddControllers();
 
